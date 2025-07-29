@@ -5,8 +5,14 @@
 **[Preview] | [Install] | [Contribute]**
 </div>
 
+[Preview]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#preview
+[Install]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#install
+[Contribute]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#contribute
+
 ## Preview
-`will be added soon...`
+<img
+src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview.png?raw=true"
+alt="preview image">
 
 ## Install
 Currently the theme is only available Neovim. The
