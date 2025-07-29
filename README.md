@@ -10,7 +10,7 @@
 
 ## Install
 Currently the theme is only available Neovim. The
-(echasnovski/mini.nvim)[https://github.com/echasnovski/mini.nvim] plugin set is used for
+[echasnovski/mini.nvim](https://github.com/echasnovski/mini.nvim) plugin set is used for
 this colorscheme. To install the theme, add the following to your **lazy.nvim**:
 ```lua
 {
