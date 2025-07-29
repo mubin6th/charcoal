@@ -1,5 +1,6 @@
-There is plane to add accent colors as well.
+There is plan to add accent colors as well.
 
+```
 - black0: #120f09
 - black1: #1e1812
 - black2: #292016
@@ -10,3 +11,4 @@ There is plane to add accent colors as well.
 - white2: #a28662
 - white3: #c0a179
 - white4: #d6b891
+```
