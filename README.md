@@ -17,8 +17,10 @@ alt="preview image">
 ## Install
 Currently the theme is only available for Neovim. The
 [echasnovski/mini.nvim](https://github.com/echasnovski/mini.nvim) plugin set is used for
-this colorscheme. There is currently only dark version (light is comming soon) of the
-colorscheme. Install charcoal dark from [here](https://github.com/mubin6th/charcoal/blob/master/charcoal_dark.lua).
+this colorscheme. You have to make sure you have **lazy.nvim** installed. You can install
+[charcoal dark](https://github.com/mubin6th/charcoal/blob/master/charcoal_dark.lua)
+or [charcoal light](https://github.com/mubin6th/charcoal/blob/master/charcoal_light.lua)
+from the hyperlinks.
 
 ## Contribute
 Currently, there are no accent color to the theme. I would like to add accent colors as
