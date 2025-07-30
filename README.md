@@ -22,7 +22,12 @@ this colorscheme. You have to make sure you have **lazy.nvim** installed. You ca
 or [charcoal light](https://github.com/mubin6th/charcoal/blob/master/charcoal_light.lua)
 from the hyperlinks.
 
+## Improvements
+I'm not great at making colorschemes. As a result the colors I've choosen can be far
+better. I am specially curious to improve the `charcoal_light` color scheme as it
+greatly lacks contrast. Any contribution is greatly accepted!
+
 ## Contribute
-Currently, there are no accent color to the theme. I would like to add accent colors as
+Currently, there are no accent colors to the theme. I would like to add accent colors as
 they are sometimes required for applications. If you want to **suggest** any change to
 the palette, let me know. I will kindly take your opinion, Insha'allah.
