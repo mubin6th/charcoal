@@ -11,7 +11,7 @@
 
 ## Preview
 <img
-src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview.png?raw=true"
+src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview_revision_2.png?raw=true"
 alt="preview image">
 
 ## Install
