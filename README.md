@@ -1,6 +1,6 @@
 <div align="center">
     <h1>charcoal</h1>
-    <p>A calm, dark, yet bright color scheme.</p>
+    <p>A warm and calm color scheme.</p>
 
 **[Preview] | [Install] | [Contribute]**
 </div>
