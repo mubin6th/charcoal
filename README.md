@@ -1,9 +1,7 @@
 <div align="center">
-    <h2><code>
-         _  |)    _,   ,_   _   _   _,  |\
-        /   |/\  / |  /  | /   / \_/ |  |/
-        \__/|  |/\/|_/   |/\__/\_/ \/|_/|_/
-    </code></h2>
+    <h2><code>_  |)    _,   ,_   _   _   _,  |\
+/   |/\  / |  /  | /   / \_/ |  |/
+\__/|  |/\/|_/   |/\__/\_/ \/|_/|_/</code></h2>
     <p>A warm and calm color scheme.</p>
 
 **[Preview] | [Install] | [Contribute]**
