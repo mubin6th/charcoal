@@ -16,10 +16,10 @@ blue1 = #43716d
 blue2 = #56938d
 blue3 = #6ab4ad
 
-teal1 = #3a6452
-teal2 = #4a846b
-teal3 = #69b093
+teal1 = #307256
+teal2 = #408f6d
+teal3 = #58a885
 
-green1 = #677c50
-green2 = #7d9755
-green3 = #93ad6d
+green1 = #4a6435
+green2 = #647e4f
+green3 = #7e9967
