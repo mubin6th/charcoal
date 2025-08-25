@@ -1,5 +1,9 @@
 <div align="center">
-    <h1>charcoal</h1>
+    <h1><code>
+         _  |)    _,   ,_   _   _   _,  |\
+        /   |/\  / |  /  | /   / \_/ |  |/
+        \__/|  |/\/|_/   |/\__/\_/ \/|_/|_/
+    </code></h1>
     <p>A warm and calm color scheme.</p>
 
 **[Preview] | [Install] | [Contribute]**
