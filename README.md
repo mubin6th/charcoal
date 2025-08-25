@@ -18,8 +18,8 @@ alt="preview image">
 Currently the theme is only available for Neovim. The
 [echasnovski/mini.nvim](https://github.com/echasnovski/mini.nvim) plugin set is used for
 this colorscheme. You have to make sure you have **lazy.nvim** installed. You can install
-[charcoal dark](https://github.com/mubin6th/charcoal/blob/master/charcoal_dark.lua)
-or [charcoal light](https://github.com/mubin6th/charcoal/blob/master/charcoal_light.lua)
+[charcoal dark](https://github.com/mubin6th/charcoal/blob/master/nvim/charcoal_dark.lua)
+or [charcoal light](https://github.com/mubin6th/charcoal/blob/master/nvim/charcoal_light.lua)
 from the hyperlinks.
 
 ## Needed Improvements
