@@ -1,10 +1,9 @@
-```
- _  |)    _,   ,_   _   _   _,  |\
-/   |/\  / |  /  | /   / \_/ |  |/
-\__/|  |/\/|_/   |/\__/\_/ \/|_/|_/
-```
-<p>A warm and calm color scheme.</p>
+<div align="center">
+    <h1>charcoal</h1>
+    <p>A warm and calm color scheme.</p>
+
 **[Preview] | [Install] | [Contribute]**
+</div>
 
 [Preview]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#preview
 [Install]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#install
