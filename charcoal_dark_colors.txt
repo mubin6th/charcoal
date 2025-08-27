@@ -1,4 +1,5 @@
 // The black and white colors will have 5 shades. While others will have 3.
+// Shades will gradually increase its strength.
 
 black1 = #120f09
 black2 = #1e1812
@@ -27,3 +28,7 @@ yellow3 = #c1883f
 teal1 = #307256
 teal2 = #408f6d
 teal3 = #58a885
+
+purple1 = #70293c
+purple2 = #953951
+purple3 = #b14d68
