@@ -20,6 +20,10 @@ blue1 = #43716d
 blue2 = #56938d
 blue3 = #6ab4ad
 
+yellow1 = #835416
+yellow2 = #a66f28
+yellow3 = #c1883f
+
 teal1 = #307256
 teal2 = #408f6d
 teal3 = #58a885
