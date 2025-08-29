@@ -12,23 +12,3 @@ white2 = #887254
 white3 = #a28662
 white4 = #c0a179
 white5 = #d6b891
-
-green1 = #4a6435
-green2 = #647e4f
-green3 = #7e9967
-
-blue1 = #43716d
-blue2 = #56938d
-blue3 = #6ab4ad
-
-yellow1 = #835416
-yellow2 = #a66f28
-yellow3 = #c1883f
-
-teal1 = #307256
-teal2 = #408f6d
-teal3 = #58a885
-
-purple1 = #70293c
-purple2 = #953951
-purple3 = #b14d68
