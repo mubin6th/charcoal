@@ -10,29 +10,28 @@
 // we use variable instead of macros when possible.
 const int EXIT_ERR = 255;
 
-typedef struct _Image {
+typedef struct image_t {
     uint8_t *data;
     int width;
     int height;
     int bytes;
-} Image;
-typedef struct _TileData {
+} image_t;
+
+typedef struct tile_data_t {
     int r, c, w, h;
-} TileData;
+} tile_data_t;
 
-void getWritePath(const char *path, char *out);
-void loadImage(Image *self, const char *path);
-void writeImage(Image *self, const char *path);
-void freeImage(Image *self);
-uint32_t getColorHexFromChar(char c);
-void drawColorGrid(Image *img,
-                   int r, int c,
-                   int px_in_row, int px_in_col,
-                   uint8_t *color_list, size_t color_list_len);
+void get_write_path(const char *path, char *out);
+void write_image(image_t *self, const char *path);
+void free_image(image_t *self);
+uint32_t get_color_hex_from_char(char c);
+void draw_color_grid(image_t *img, int r, int c, int px_in_row, int px_in_col,
+                     uint8_t *color_list, size_t color_list_len);
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     const char *input_path = NULL;
-    TileData tile_data = {
+    tile_data_t tile_data = {
         .c = 0,
         .r = 1,
         .w = 64,
@@ -44,20 +43,13 @@ int main(int argc, char **argv) {
         NULL
     };
     struct argparse_option arg_options[] = {
-        OPT_STRING('i', "input", &input_path, "path to text file.",
-                   NULL, 0, 0),
-        OPT_INTEGER('r', "rows", &tile_data.r,
-                   "the number of rows. default: 9.",
-                   NULL, 0, 0),
-        OPT_INTEGER('c', "columns", &tile_data.c,
-                   "the number of columns. default: 9.",
-                   NULL, 0, 0),
-        OPT_INTEGER('x', "width", &tile_data.w,
-                   "tile width. default: 64.",
-                   NULL, 0, 0),
-        OPT_INTEGER('y', "height", &tile_data.h,
-                   "tile height. default: 64.",
-                   NULL, 0, 0),
+        OPT_STRING('i', "input", &input_path, "path to text file.", NULL, 0, 0),
+        OPT_INTEGER('r', "rows", &tile_data.r, "the number of rows. default: 9.", NULL,0,
+                    0),
+        OPT_INTEGER('c', "columns", &tile_data.c, "the number of columns. default: 9.",
+                    NULL, 0, 0),
+        OPT_INTEGER('x', "width", &tile_data.w, "tile width. default: 64.", NULL, 0, 0),
+        OPT_INTEGER('y', "height", &tile_data.h, "tile height. default: 64.", NULL, 0, 0),
         OPT_HELP(),
         OPT_END()
     };
@@ -90,7 +82,6 @@ int main(int argc, char **argv) {
         line_ptr = line_buf;
         while ((word = strtok_r(line_ptr, " \n", &line_ptr))) {
             size_t word_len = strlen(word);
-
             if (word_len != 7 || word[0] != '#') {
                 continue;
             }
@@ -109,10 +100,9 @@ int main(int argc, char **argv) {
                     crnt_color_ptr++;
                 }
                 *crnt_color_ptr |=
-                    getColorHexFromChar(line_buf[i])
+                    get_color_hex_from_char(line_buf[i])
                     << (i % 2 ? 4 : 0);
             }
-
             if (!flag) {
                 color_arr[color_arr_idx + 0] = crnt_color[0];
                 color_arr[color_arr_idx + 1] = crnt_color[1];
@@ -122,31 +112,24 @@ int main(int argc, char **argv) {
             }
         }
     }
-
     fclose(file_ptr);
 
     if (!tile_data.c) {
         tile_data.c = color_arr_idx / 3;
     }
-
-    Image img;
-    drawColorGrid(&img,
-                  tile_data.r, tile_data.c,
-                  tile_data.h, tile_data.w,
-                  color_arr, color_arr_idx);
-    writeImage(&img, "colorgrid.png");
-    freeImage(&img);
+    image_t img;
+    draw_color_grid(&img,
+                    tile_data.r, tile_data.c,
+                    tile_data.h, tile_data.w,
+                    color_arr, color_arr_idx);
+    write_image(&img, "colorgrid.png");
+    free_image(&img);
 
     return 0;
 }
 
-void loadImage(Image *self, const char *path) {
-    self->data = stbi_load(path,
-                           &self->width, &self->height,
-                           &self->bytes, 0);
-}
-
-void writeImage(Image *self, const char *path) {
+void write_image(image_t *self, const char *path)
+{
     size_t path_size = strlen(path);
     size_t k = 0;
 
@@ -164,28 +147,27 @@ void writeImage(Image *self, const char *path) {
     if (strcmp(type, "jpg") == 0 || strcmp(type, "jpeg") == 0) {
         // if quality is 100 then the filesize tends to be
         // much bigger than original.
-        stbi_write_jpg(path, self->width, self->height, self->bytes,
-                       self->data, 90);
+        stbi_write_jpg(path, self->width, self->height, self->bytes, self->data, 90);
     }
     else if (strcmp(type, "png") == 0) {
-        stbi_write_png(path, self->width, self->height, self->bytes,
-                       self->data, self->width * self->bytes);
+        stbi_write_png(path, self->width, self->height, self->bytes, self->data,
+                       self->width * self->bytes);
     }
     else if (strcmp(type, "bmp") == 0) {
-        stbi_write_bmp(path, self->width, self->height, self->bytes,
-                       self->data);
+        stbi_write_bmp(path, self->width, self->height, self->bytes, self->data);
     }
     else if (strcmp(type, "tga") == 0) {
-        stbi_write_tga(path, self->width, self->height, self->bytes,
-                       self->data);
+        stbi_write_tga(path, self->width, self->height, self->bytes, self->data);
     }
 }
 
-void freeImage(Image *self) {
+void free_image(image_t *self)
+{
     free(self->data);
 }
 
-uint32_t getColorHexFromChar(char c) {
+uint32_t get_color_hex_from_char(char c)
+{
     if (c >= '0' && c <= '9') {
         return c - '0';
     }
@@ -195,26 +177,21 @@ uint32_t getColorHexFromChar(char c) {
     else if (c >= 'A' || c <= 'F') {
         return c - 'A' + 10;
     }
-
     return UINT32_MAX;
 }
 
-void drawColorGrid(Image *img,
-                   int r, int c,
-                   int px_in_row, int px_in_col,
-                   uint8_t *color_list, size_t color_list_len)
+void draw_color_grid(image_t *img, int r, int c, int px_in_row, int px_in_col,
+                     uint8_t *color_list, size_t color_list_len)
 {
     img->width = c * px_in_col;
     img->height = r * px_in_row;
     img->bytes = 3;
     img->data = malloc(img->width * img->height * img->bytes);
-
     uint8_t *ptr = &img->data[0];
+
     for (int y = 0; y < img->height; y++) {
         for (int x = 0; x < img->width; x++) {
-            size_t idx = ((x / px_in_col) +
-                          (y / px_in_row) * c) * 3;
-
+            size_t idx = ((x / px_in_col) + (y / px_in_row) * c) * 3;
             if (idx < color_list_len) {
                  ptr[0] = color_list[idx + 0];
                  ptr[1] = color_list[idx + 1];
@@ -225,7 +202,6 @@ void drawColorGrid(Image *img,
                  ptr[1] = 0;
                  ptr[2] = 0;
             }
-
             ptr += img->bytes;
         }
     }
