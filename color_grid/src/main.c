@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "../include/stb_image.h"
@@ -32,8 +33,8 @@ int main(int argc, char **argv)
 {
     const char *input_path = NULL;
     tile_data_t tile_data = {
-        .c = 0,
         .r = 1,
+        .c = 0,
         .w = 64,
         .h = 64
     };
@@ -44,9 +45,9 @@ int main(int argc, char **argv)
     };
     struct argparse_option arg_options[] = {
         OPT_STRING('i', "input", &input_path, "path to text file.", NULL, 0, 0),
-        OPT_INTEGER('r', "rows", &tile_data.r, "the number of rows. default: 9.", NULL,0,
+        OPT_INTEGER('r', "rows", &tile_data.r, "the number of rows. default: 1.", NULL,0,
                     0),
-        OPT_INTEGER('c', "columns", &tile_data.c, "the number of columns. default: 9.",
+        OPT_INTEGER('c', "columns", &tile_data.c, "the number of columns. default: 0.",
                     NULL, 0, 0),
         OPT_INTEGER('x', "width", &tile_data.w, "tile width. default: 64.", NULL, 0, 0),
         OPT_INTEGER('y', "height", &tile_data.h, "tile height. default: 64.", NULL, 0, 0),
@@ -85,15 +86,15 @@ int main(int argc, char **argv)
             if (word_len != 7 || word[0] != '#') {
                 continue;
             }
-            char flag = 0;
+            bool flag = false;
             memset(crnt_color, 0, sizeof(crnt_color));
             uint8_t *crnt_color_ptr = &crnt_color[0];
-            for (size_t i = 1; i < word_len; i++) {
-                if ((line_buf[i] < '0' || line_buf[i] > '9') &&
-                    (line_buf[i] < 'a' || line_buf[i] > 'f') &&
-                    (line_buf[i] < 'A' || line_buf[i] > 'F'))
+            for (size_t i = 1; i < 7; i++) {
+                if ((word[i] < '0' || word[i] > '9') &&
+                    (word[i] < 'a' || word[i] > 'f') &&
+                    (word[i] < 'A' || word[i] > 'F'))
                 {
-                    flag = 1;
+                    flag = true;
                     break;
                 }
                 if (i % 2 == 1 && i != 1) {
@@ -107,7 +108,6 @@ int main(int argc, char **argv)
                 color_arr[color_arr_idx + 0] = crnt_color[0];
                 color_arr[color_arr_idx + 1] = crnt_color[1];
                 color_arr[color_arr_idx + 2] = crnt_color[2];
-
                 color_arr_idx += 3;
             }
         }
@@ -118,10 +118,8 @@ int main(int argc, char **argv)
         tile_data.c = color_arr_idx / 3;
     }
     image_t img;
-    draw_color_grid(&img,
-                    tile_data.r, tile_data.c,
-                    tile_data.h, tile_data.w,
-                    color_arr, color_arr_idx);
+    draw_color_grid(&img, tile_data.r, tile_data.c, tile_data.h, tile_data.w, color_arr,
+                    color_arr_idx);
     write_image(&img, "colorgrid.png");
     free_image(&img);
 
