@@ -11,4 +11,4 @@ run:
 	./colorgrid
 
 clean:
-	rm -fr ./colorgrid
+	rm -fr ./colorgrid ./colorgrid.png

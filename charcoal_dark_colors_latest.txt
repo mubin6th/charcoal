@@ -1,0 +1,14 @@
+// The black and white colors will have 5 shades. While others will have 3.
+// Shades will gradually increase their strength.
+
+black1 = #120f09
+black2 = #231e15
+black3 = #282319
+black4 = #312a1e
+black5 = #383125
+
+white1 = #66553f
+white2 = #887254
+white3 = #a28662
+white4 = #c0a179
+white5 = #d6b891
