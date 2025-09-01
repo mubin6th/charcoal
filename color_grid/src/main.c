@@ -67,17 +67,17 @@ int main(int argc, char **argv)
     }
 
     FILE *file_ptr;
-    if ((file_ptr = fopen(input_path, "r")) == NULL) {
-        fprintf(stderr, "error: failed to load file.\n");
-        return EXIT_ERR;
-    }
-
     char line_buf[1 << 7];
     char *line_ptr;
     char *word;
     uint8_t color_arr[(1 << 10) * 3];
     uint8_t crnt_color[3];
     size_t color_arr_idx = 0;
+
+    if ((file_ptr = fopen(input_path, "r")) == NULL) {
+        fprintf(stderr, "error: failed to load file.\n");
+        return EXIT_ERR;
+    }
 
     while ((fgets(line_buf, sizeof(line_buf), file_ptr)) != NULL) {
         line_ptr = line_buf;
@@ -88,7 +88,6 @@ int main(int argc, char **argv)
             }
             bool flag = false;
             memset(crnt_color, 0, sizeof(crnt_color));
-            uint8_t *crnt_color_ptr = &crnt_color[0];
             for (size_t i = 1; i < 7; i++) {
                 if ((word[i] < '0' || word[i] > '9') &&
                     (word[i] < 'a' || word[i] > 'f') &&
@@ -97,11 +96,8 @@ int main(int argc, char **argv)
                     flag = true;
                     break;
                 }
-                if (i % 2 == 1 && i != 1) {
-                    crnt_color_ptr++;
-                }
-                *crnt_color_ptr |=
-                    get_color_hex_from_char(line_buf[i])
+                crnt_color[(i - 1) / 2] |=
+                    get_color_hex_from_char(word[i])
                     << (i % 2 ? 4 : 0);
             }
             if (!flag) {
@@ -130,7 +126,6 @@ void write_image(image_t *self, const char *path)
 {
     size_t path_size = strlen(path);
     size_t k = 0;
-
     for (size_t i = path_size - 1; i >= 0; i--) {
         if (path[i] == '.') {
             k = i + 1;

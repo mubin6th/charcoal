@@ -7,7 +7,7 @@ EXE:=colorgrid
 all:
 	$(CC) $(SRC) -o $(EXE) $(INCLUDE_DIR) $(LIBS_DIR) $(LIBS)
 
-run:
+run: all
 	./colorgrid
 
 clean:
