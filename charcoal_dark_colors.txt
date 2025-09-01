@@ -1,5 +1,5 @@
 // The black and white colors will have 5 shades. While others will have 3.
-// Shades will gradually increase its strength.
+// Shades will gradually increase their strength.
 
 black1 = #120f09
 black2 = #1e1812
