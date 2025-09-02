@@ -1,0 +1,32 @@
+#include "include/arg.h"
+#include <stddef.h>
+
+static arg_t arg_g;
+static const char *arg_description =
+    "A program to take hex separated colors from file and make a color grid.";
+static const char *const arg_usages[] = {
+    "colorgrid [arguments...]",
+    NULL
+};
+static struct argparse_option arg_options[] = {
+    OPT_STRING('i', "input", &arg_g.path, "path to text file.", NULL, 0, 0),
+    OPT_INTEGER('r', "rows", &arg_g.row, "the number of rows. default: 1.", NULL,0,
+                0),
+    OPT_INTEGER('c', "columns", &arg_g.col, "the number of columns. default: 0.",
+                NULL, 0, 0),
+    OPT_INTEGER('x', "width", &arg_g.width, "tile width. default: 64.", NULL, 0, 0),
+    OPT_INTEGER('y', "height", &arg_g.height, "tile height. default: 64.", NULL, 0,
+                0),
+    OPT_HELP(),
+    OPT_END()
+};
+
+
+arg_t *arg_get(char **argv, int argc, char *usage, struct argparse_option *options)
+{
+    arg_g.option = arg_options;
+    argparse_init(&arg_g.parser, arg_options, arg_usages, 0);
+    argparse_describe(&arg_g.parser, arg_description, NULL);
+    argparse_parse(&arg_g.parser, argc, (const char **)argv);
+    return &arg_g;
+}

@@ -40,7 +40,7 @@ int main(int argc, char **argv)
     };
 
     const char *const usages[] = {
-        "colorgrid [arguments] [parameters]",
+        "colorgrid [arguments...]",
         NULL
     };
     struct argparse_option arg_options[] = {
