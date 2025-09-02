@@ -5,7 +5,7 @@
 #include "include/hex_color.h"
 #include "include/optional.h"
 
-bool read_file_for_hex_colors(const char *path, uint32_t *out, uint32_t out_length)
+bool read_file_for_hex_colors(const char *path, uint32_t *out, size_t out_length)
 {
     FILE *file_ptr;
     if ((file_ptr = fopen(path, "r")) == NULL) {
