@@ -1,7 +1,13 @@
-#include "include/arg.h"
 #include <stddef.h>
+#include "include/arg.h"
 
-static arg_t arg_g;
+static arg_t arg_g = {
+    .path = NULL,
+    .row = 1,
+    .col = -1,
+    .width = 64,
+    .height = 64,
+};
 static const char *arg_description =
     "A program to take hex separated colors from file and make a color grid.";
 static const char *const arg_usages[] = {
