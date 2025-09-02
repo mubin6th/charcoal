@@ -14,6 +14,5 @@ typedef struct arg_t {
 } arg_t;
 
 arg_t *arg_get(char **argv, int argc, char *usage, struct argparse_option *options);
-void arg_print_help_msg(arg_t *self);
 
 #endif
