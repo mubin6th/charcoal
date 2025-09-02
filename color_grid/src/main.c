@@ -18,18 +18,22 @@ int main(int argc, char **argv)
 
     uint32_t colors[1024];
     size_t colors_length;
-    read_file_for_hex_colors(arg->path, colors,
-                             sizeof(colors) / sizeof(uint32_t), &colors_length);
+    if (!read_file_for_hex_colors(arg->path, colors,
+                                  sizeof(colors) / sizeof(uint32_t), &colors_length))
+    {
+        fprintf(stderr, "error: failed to load file.\n");
+        return EXIT_ERROR;
+    }
     if (arg->col == -1) {
         arg->col = colors_length;
     }
 
     image_t image = {
-        .data = malloc(arg->col * arg->width * arg->row * arg->height),
         .width = arg->col * arg->width,
         .height = arg->row * arg->height,
         .bytes = 3
     };
+    image.data = malloc(image.width * image.height * image.bytes);
     draw_color_grid(&image, colors, colors_length, arg->row, arg->col,
                     arg->height, arg->width);
     image_write(&image, "colorgrid.png");

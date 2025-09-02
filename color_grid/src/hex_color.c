@@ -23,12 +23,12 @@ optional_uint32_t hex_color_from_string(const char *str)
         return no_value;
     }
     int value;
-    uint32_t color;
+    uint32_t color = 0;
     for (size_t i = 6; i >= 1; i--) {
         if ((value = hex_color_from_char(str[i])) == -1) {
             return no_value;
         }
-        color |= value << (6 - i + 2);
+        color |= value << ((6 - i + 2) * 4);
     }
     return (optional_uint32_t){color, true};
 }
