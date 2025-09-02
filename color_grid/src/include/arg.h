@@ -13,6 +13,6 @@ typedef struct arg_t {
     int height;
 } arg_t;
 
-arg_t *arg_get(char **argv, int argc, char *usage, struct argparse_option *options);
+arg_t *arg_get(char **argv, int argc);
 
 #endif

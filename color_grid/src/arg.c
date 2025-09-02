@@ -28,7 +28,7 @@ static struct argparse_option arg_options[] = {
 };
 
 
-arg_t *arg_get(char **argv, int argc, char *usage, struct argparse_option *options)
+arg_t *arg_get(char **argv, int argc)
 {
     arg_g.option = arg_options;
     argparse_init(&arg_g.parser, arg_options, arg_usages, 0);
