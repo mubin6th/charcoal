@@ -6,6 +6,7 @@
 #include <stdbool.h>
 
 // return true on success and false on failure.
-bool read_file_for_hex_colors(const char *path, uint32_t *out, size_t out_length);
+bool read_file_for_hex_colors(const char *path, uint32_t *out, size_t out_length,
+                              size_t *return_length);
 
 #endif
