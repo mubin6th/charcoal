@@ -1,6 +1,6 @@
-SRC:=src/*.c lib/argparse.c
+SRC:=src/*.c lib/*.c
 INCLUDE_DIR:=-I"include/"
-LIBS:= -lm
+LIBS:= -lm -lglfw3 -lGL -ldl
 LIBS_DIR:=-L"lib/"
 EXE:=colorgrid
 
