@@ -1,7 +1,7 @@
 #include <string.h>
 #include "include/hex_color.h"
 
-int hex_color_from_char(char c)
+inline int hex_color_from_char(char c)
 {
     if (c >= '0' && c <= '9') {
         return c - '0';
@@ -33,7 +33,7 @@ optional_uint32_t hex_color_from_string(const char *str)
     return (optional_uint32_t){color, true};
 }
 
-void hex_color_split(uint32_t color, uint8_t *out)
+inline void hex_color_split(uint32_t color, uint8_t *out)
 {
     out[0] = color >> 24;
     out[1] = (color >> 16) & 0xff;
