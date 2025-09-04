@@ -5,6 +5,13 @@
 
 static window_t window_g;
 
+static void window_framebuffer_size_callback(GLFWwindow *window, int width, int height)
+{
+    glViewport(0, 0, width, height);
+    window_g.width = width;
+    window_g.height = height;
+}
+
 window_t *window_init(int initial_width, int initial_height, const char *title)
 {
     window_g.width = initial_width;
@@ -35,4 +42,9 @@ void window_deinit()
 {
     free(window_g.title);
     glfwDestroyWindow(window_g.window);
+}
+
+void window_process_callbacks()
+{
+    glfwSetFramebufferSizeCallback(window_g.window, window_framebuffer_size_callback);
 }
