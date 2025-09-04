@@ -3,8 +3,13 @@
 
 #include "../../include/glad/glad.h"
 
+typedef struct image_view_vertex_t {
+    float pos[3];
+    float tex_coords[2];
+} image_view_vertex_t;
+
 typedef struct image_view_buffer_t {
-    float vertices[5 * 4];
+    image_view_vertex_t vertices[4];
     GLuint vbo;
     GLuint vao;
 } image_view_buffer_t;
