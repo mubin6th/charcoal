@@ -438,23 +438,23 @@ LINMATH_H_FUNC void linmath_mat4x4_look_at(linmath_mat4x4 m, linmath_vec3 const 
 	linmath_mat4x4_translate_in_place(m, -eye[0], -eye[1], -eye[2]);
 }
 
-typedef float quat[4];
-#define quat_add linmath_vec4_add
-#define quat_sub linmath_vec4_sub
-#define quat_norm linmath_vec4_norm
-#define quat_scale linmath_vec4_scale
-#define quat_mul_inner linmath_vec4_mul_inner
+typedef float linmath_quat[4];
+#define linmath_quat_add linmath_vec4_add
+#define linmath_quat_sub linmath_vec4_sub
+#define linmath_quat_norm linmath_vec4_norm
+#define linmath_quat_scale linmath_vec4_scale
+#define linmath_quat_mul_inner linmath_vec4_mul_inner
 
-LINMATH_H_FUNC void quat_identity(quat q)
+LINMATH_H_FUNC void linmath_quat_identity(linmath_quat q)
 {
 	q[0] = q[1] = q[2] = 0.f;
 	q[3] = 1.f;
 }
-LINMATH_H_FUNC void quat_mul(quat r, quat const p, quat const q)
+LINMATH_H_FUNC void linmath_quat_mul(linmath_quat r, linmath_quat const p, linmath_quat const q)
 {
 	linmath_vec3 w, tmp;
 
-	linmath_vec3_mul_cross(tmp, p, q);
+	linmath_vec3_mul_cross(tmp, p, q)linmath_;
 	linmath_vec3_scale(w, p, q[3]);
 	linmath_vec3_add(tmp, tmp, w);
 	linmath_vec3_scale(w, q, p[3]);
@@ -463,14 +463,14 @@ LINMATH_H_FUNC void quat_mul(quat r, quat const p, quat const q)
 	linmath_vec3_dup(r, tmp);
 	r[3] = p[3]*q[3] - linmath_vec3_mul_inner(p, q);
 }
-LINMATH_H_FUNC void quat_conj(quat r, quat const q)
+LINMATH_H_FUNC void linmath_quat_conj(linmath_quat r, linmath_quat const q)
 {
 	int i;
 	for(i=0; i<3; ++i)
 		r[i] = -q[i];
 	r[3] = q[3];
 }
-LINMATH_H_FUNC void quat_rotate(quat r, float angle, linmath_vec3 const axis) {
+LINMATH_H_FUNC void linmath_quat_rotate(linmath_quat r, float angle, linmath_vec3 const axis) {
     linmath_vec3 axis_norm;
     linmath_vec3_norm(axis_norm, axis);
     float s = sinf(angle / 2);
@@ -478,7 +478,7 @@ LINMATH_H_FUNC void quat_rotate(quat r, float angle, linmath_vec3 const axis) {
     linmath_vec3_scale(r, axis_norm, s);
     r[3] = c;
 }
-LINMATH_H_FUNC void quat_mul_linmath_vec3(linmath_vec3 r, quat const q, linmath_vec3 const v)
+LINMATH_H_FUNC void linmath_quat_mul_vec3(linmath_vec3 r, linmath_quat const q, linmath_vec3 const v)
 {
 /*
  * Method by Fabian 'ryg' Giessen (of Farbrausch)
@@ -498,7 +498,7 @@ v' = v + q.w * t + cross(q.xyz, t)
 	linmath_vec3_add(r, v, t);
 	linmath_vec3_add(r, r, u);
 }
-LINMATH_H_FUNC void linmath_mat4x4_from_quat(linmath_mat4x4 M, quat const q)
+LINMATH_H_FUNC void linmath_mat4x4_from_linmath_quat(linmath_mat4x4 M, linmath_quat const q)
 {
 	float a = q[3];
 	float b = q[0];
@@ -528,13 +528,13 @@ LINMATH_H_FUNC void linmath_mat4x4_from_quat(linmath_mat4x4 M, quat const q)
 	M[3][3] = 1.f;
 }
 
-LINMATH_H_FUNC void linmath_mat4x4o_mul_quat(linmath_mat4x4 R, linmath_mat4x4 const M, quat const q)
+LINMATH_H_FUNC void linmath_mat4x4o_mul_linmath_quat(linmath_mat4x4 R, linmath_mat4x4 const M, linmath_quat const q)
 {
 /*  XXX: The way this is written only works for orthogonal matrices. */
 /* TODO: Take care of non-orthogonal case. */
-	quat_mul_linmath_vec3(R[0], q, M[0]);
-	quat_mul_linmath_vec3(R[1], q, M[1]);
-	quat_mul_linmath_vec3(R[2], q, M[2]);
+	linmath_quat_mul_vec3(R[0], q, M[0]);
+	linmath_quat_mul_vec3(R[1], q, M[1]);
+	linmath_quat_mul_vec3(R[2], q, M[2]);
 
 	R[3][0] = R[3][1] = R[3][2] = 0.f;
 	R[0][3] = M[0][3];
@@ -542,7 +542,7 @@ LINMATH_H_FUNC void linmath_mat4x4o_mul_quat(linmath_mat4x4 R, linmath_mat4x4 co
 	R[2][3] = M[2][3];
 	R[3][3] = M[3][3];  // typically 1.0, but here we make it general
 }
-LINMATH_H_FUNC void quat_from_linmath_mat4x4(quat q, linmath_mat4x4 const M)
+LINMATH_H_FUNC void linmath_quat_from_linmath_mat4x4(linmath_quat q, linmath_mat4x4 const M)
 {
 	float r=0.f;
 	int i;
