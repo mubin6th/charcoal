@@ -1,6 +1,7 @@
 #ifndef _ARG_H_INCLUDED_
 #define _ARG_H_INCLUDED_
 
+#include <stdbool.h>
 #include "../../include/argparse.h"
 
 typedef struct arg_t {
@@ -11,6 +12,7 @@ typedef struct arg_t {
     int col;
     int width;
     int height;
+    bool watch;
 } arg_t;
 
 arg_t *arg_get(char **argv, int argc);
