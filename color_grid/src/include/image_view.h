@@ -12,6 +12,7 @@ typedef struct image_view_buffer_t {
     image_view_vertex_t vertices[4];
     GLuint vbo;
     GLuint vao;
+    GLuint shader_program;
 } image_view_buffer_t;
 
 void image_view_init(image_view_buffer_t *self);

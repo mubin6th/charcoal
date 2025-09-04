@@ -12,7 +12,7 @@ static void shader_print_error_if_any(FILE *stream, GLuint shader, GLenum shader
     glGetShaderInfoLog(shader, sizeof(buf), NULL, buf);
     const char *shader_type_string =
         (shader_type == GL_VERTEX_SHADER ? "vertex_shader" : "fragment_shader");
-    fprintf(stream, "[error][%s]: %s\n", shader_type_string, buf);
+    fprintf(stream, "[error][%s]: %s", shader_type_string, buf);
 }
 
 GLuint shader_init(const char *vertex_shader, const char *fragment_shader)

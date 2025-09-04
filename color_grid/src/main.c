@@ -5,8 +5,13 @@
 #include "include/read.h"
 #include "include/image.h"
 #include "include/draw.h"
+#include "include/window.h"
+#include "include/gl.h"
+#include "include/image_view.h"
 
 static const int EXIT_ERROR = 255;
+
+void run_image_view();
 
 int main(int argc, char **argv)
 {
@@ -14,6 +19,9 @@ int main(int argc, char **argv)
     if (arg->path == NULL) {
         argparse_help_cb_no_exit(&arg->parser, arg->option);
         return EXIT_ERROR;
+    }
+    if (arg->watch) {
+        run_image_view();
     }
 
     uint32_t colors[1024];
@@ -40,4 +48,29 @@ int main(int argc, char **argv)
     image_free(&image);
 
     return 0;
+}
+
+inline void run_image_view()
+{
+    window_t *window;
+    if ((window = window_init(640, 480, "colorgrid")) == NULL) {
+        fprintf(stderr, "error: failed to initialize window.\n");
+        return;
+    }
+    if (!gl_init()) {
+        fprintf(stderr, "error: failed to initialize opengl.\n");
+        return;
+    }
+    window_process_callbacks();
+    image_view_buffer_t view_buffer;
+    image_view_init(&view_buffer);
+    while (!glfwWindowShouldClose(window->window)) {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        image_view_draw(&view_buffer);
+        glfwPollEvents();
+        glfwSwapBuffers(window->window);
+    }
+    image_view_deinit(&view_buffer);
+    window_deinit();
 }
