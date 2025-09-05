@@ -454,7 +454,7 @@ LINMATH_H_FUNC void linmath_quat_mul(linmath_quat r, linmath_quat const p, linma
 {
 	linmath_vec3 w, tmp;
 
-	linmath_vec3_mul_cross(tmp, p, q)linmath_;
+	linmath_vec3_mul_cross(tmp, p, q);
 	linmath_vec3_scale(w, p, q[3]);
 	linmath_vec3_add(tmp, tmp, w);
 	linmath_vec3_scale(w, q, p[3]);

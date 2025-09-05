@@ -5,15 +5,19 @@
 #include "include/shader.h"
 #include "../include/glad/glad.h"
 
+static const double pi = 3.141592653589793238;
+
 static const char *image_view_vertex_shader =
     "#version 330\n"
     "layout (location = 0) in vec3 pos;\n"
     "layout (location = 1) in vec2 tex_coords;\n"
     "out vec2 v_tex_coords;\n"
+    "uniform mat4 view;\n"
+    "uniform mat4 projection;\n"
     "\n"
     "void main()\n"
     "{\n"
-    "   gl_Position = vec4(pos, 1.0f);\n"
+    "   gl_Position = projection * view * vec4(pos, 1.0f);\n"
     "   v_tex_coords = tex_coords;\n"
     "}"
 ;
@@ -38,8 +42,9 @@ static inline void image_view_set_vertex_2d(image_view_vertex_t *vertex, float *
     vertex->tex_coords[1] = tex_coords[1];
 }
 
-void image_view_init(image_view_buffer_t *self)
+void image_view_init(image_view_buffer_t *self, window_t *window)
 {
+    self->window = window;
     self->shader_program = shader_init(image_view_vertex_shader,
                                        image_view_fragment_shader);
     uint32_t indices[] = {
@@ -65,8 +70,12 @@ void image_view_init(image_view_buffer_t *self)
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
     glDeleteBuffers(1, &ebo);
+
+    linmath_mat4x4_identity(self->projection);
+    linmath_mat4x4_perspective(self->projection, 120.0f * (pi / 180),
+                               (float)self->window->width / self->window->height,
+                               0.1f, 100.0f);
 }
 
 void image_view_deinit(image_view_buffer_t *self)
@@ -77,6 +86,13 @@ void image_view_deinit(image_view_buffer_t *self)
 
 void image_view_draw(image_view_buffer_t *self)
 {
+    linmath_mat4x4_identity(self->view);
+    linmath_mat4x4_translate(self->view, 0.0f, 0.0f, -2.0f);
+    glUniformMatrix4fv(glGetUniformLocation(self->shader_program, "view"), 1,
+                       GL_FALSE, &self->view[0][0]);
+    glUniformMatrix4fv(glGetUniformLocation(self->shader_program, "projection"), 1,
+                       GL_FALSE, &self->projection[0][0]);
+
     // example data
     image_view_set_vertex_2d(&self->vertices[0], (float[2]){-0.5f, 0.5f},
                              (float[2]){0.0f, 1.0f});

@@ -61,7 +61,7 @@ void run_image_view(const char *path, uint32_t *hex_colors, size_t hex_colors_le
     }
     window_process_callbacks();
     image_view_buffer_t view_buffer;
-    image_view_init(&view_buffer);
+    image_view_init(&view_buffer, window);
     read_file_change_t file_change_state;
     file_change_state.file_last_change_date = 0;
     while (!glfwWindowShouldClose(window->window)) {
