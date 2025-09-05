@@ -36,19 +36,14 @@ int main(int argc, char **argv)
     if (arg->watch) {
         run_image_view(arg->path, colors, sizeof(colors) / sizeof(uint32_t),
                        &colors_length);
+        return 0;
     }
-
-    image_t image = {
-        .width = arg->col * arg->width,
-        .height = arg->row * arg->height,
-        .bytes = 3
-    };
-    image.data = malloc(image.width * image.height * image.bytes);
+    image_t image;
+    image_init(&image, arg->col * arg->width, arg->row * arg->height, 3);
     draw_color_grid(&image, colors, colors_length, arg->row, arg->col,
                     arg->height, arg->width);
     image_write(&image, "colorgrid.png");
     image_free(&image);
-
     return 0;
 }
 

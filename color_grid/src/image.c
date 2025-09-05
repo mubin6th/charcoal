@@ -6,6 +6,16 @@
 
 #include "include/image.h"
 
+bool image_init(image_t *self, int width, int height, int bytes) {
+    *self = (image_t){
+        .width = width,
+        .height = height,
+        .bytes = bytes,
+        .data = malloc(width * height * bytes)
+    };
+    return self->data != NULL;
+}
+
 void image_write(image_t *self, const char *path)
 {
     size_t path_size = strlen(path);
