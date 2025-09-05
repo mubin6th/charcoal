@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #include "include/read.h"
+#include "include/engine_clock.h"
 #include "include/hex_color.h"
 #include "include/optional.h"
 
@@ -32,5 +33,25 @@ bool read_file_for_hex_colors(const char *path, uint32_t *out, size_t out_length
     }
     *return_length = out_idx;
     fclose(file_ptr);
+    return true;
+}
+
+bool read_file_for_hex_color_changes(read_file_change_t *state, float interval,
+                                     const char *path, uint32_t *out, size_t out_length,
+                                     size_t *return_length)
+{
+    engine_clock_set_current(&state->clock);
+    state->clock.delta = state->clock.current - state->clock.last;
+    if (state->clock.delta < interval || stat(path, &state->file_stat) == -1) {
+        return false;
+    }
+    state->file_current_change_date = state->file_stat.st_mtim.tv_sec;
+    if (state->file_current_change_date == state->file_last_change_date) {
+        return false;
+    }
+
+    state->clock.last = state->clock.current;
+    state->file_last_change_date = state->file_current_change_date;
+    read_file_for_hex_colors(path, out, out_length, return_length);
     return true;
 }
