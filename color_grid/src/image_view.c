@@ -95,7 +95,7 @@ void image_view_deinit(image_view_buffer_t *self)
 
 void image_view_draw(image_view_buffer_t *self, arg_t *arg)
 {
-    if (read_file_for_hex_color_changes(&self->file_change_state, 0.2f, arg->path,
+    if (read_file_for_hex_color_changes(&self->file_change_state, 0.15f, arg->path,
                                         self->colors,
                                         sizeof(self->colors) / sizeof(uint32_t),
                                         &self->colors_length))

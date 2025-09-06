@@ -45,12 +45,12 @@ bool read_file_for_hex_color_changes(read_file_change_t *state, float interval,
     if (state->clock.delta < interval || stat(path, &state->file_stat) == -1) {
         return false;
     }
+    state->clock.last = state->clock.current;
     state->file_current_change_date = state->file_stat.st_mtim.tv_sec;
     if (state->file_current_change_date == state->file_last_change_date) {
         return false;
     }
 
-    state->clock.last = state->clock.current;
     state->file_last_change_date = state->file_current_change_date;
     read_file_for_hex_colors(path, out, out_length, return_length);
     return true;
