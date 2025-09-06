@@ -10,8 +10,9 @@ bool image_init(image_t *self, int width, int height, int bytes) {
     *self = (image_t){
         .width = width,
         .height = height,
+        .aspect_ratio = (double)width / height,
         .bytes = bytes,
-        .data = malloc(width * height * bytes)
+        .data = malloc(width * height * bytes),
     };
     return self->data != NULL;
 }

@@ -43,6 +43,18 @@ static inline void image_view_set_vertex_2d(image_view_vertex_t *vertex, float *
     vertex->tex_coords[1] = tex_coords[1];
 }
 
+
+static inline void image_view_get_view_size(image_view_buffer_t *self)
+{
+    if (self->window->width / self->image.aspect_ratio <= self->window->height) {
+        self->view_width = self->window->width;
+        self->view_height = self->window->width / self->image.aspect_ratio;
+        return;
+    }
+    self->view_width = self->window->height * self->image.aspect_ratio;
+    self->view_height = self->window->height;
+}
+
 void image_view_init(image_view_buffer_t *self, window_t *window)
 {
     self->window = window;
@@ -73,14 +85,6 @@ void image_view_init(image_view_buffer_t *self, window_t *window)
     glBindVertexArray(0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glDeleteBuffers(1, &ebo);
-
-    float half_window_width = window->width / 2.0f;
-    float half_window_height = window->height / 2.0f;
-    linmath_mat4x4_identity(self->projection);
-    linmath_mat4x4_ortho(self->projection,
-                         -half_window_width, half_window_width,
-                         -half_window_height, half_window_height,
-                         0.1f, 100.0f);
 }
 
 void image_view_deinit(image_view_buffer_t *self)
@@ -107,20 +111,42 @@ void image_view_draw(image_view_buffer_t *self, arg_t *arg)
     }
 
     linmath_mat4x4_identity(self->view);
+    linmath_mat4x4_identity(self->projection);
     linmath_mat4x4_translate(self->view, 0.0f, 0.0f, -1.0f);
+    linmath_mat4x4_ortho(self->projection,
+                         -self->window->width / 2.0f, self->window->width / 2.0f,
+                         -self->window->height / 2.0f, self->window->height / 2.0f,
+                         0.1f, 100.0f);
+
     glUniformMatrix4fv(glGetUniformLocation(self->shader_program, "view"), 1,
                        GL_FALSE, &self->view[0][0]);
     glUniformMatrix4fv(glGetUniformLocation(self->shader_program, "projection"), 1,
                        GL_FALSE, &self->projection[0][0]);
 
-    // example data
-    image_view_set_vertex_2d(&self->vertices[0], (float[2]){-100.0f, 100.0f},
+    image_view_get_view_size(self);
+    image_view_set_vertex_2d(&self->vertices[0],
+                             (float[2]){
+                                 -(float)self->view_width / 2,
+                                  (float)self->view_height / 2
+                             },
                              (float[2]){0.0f, 1.0f});
-    image_view_set_vertex_2d(&self->vertices[1], (float[2]){-100.0f,-100.0f},
+    image_view_set_vertex_2d(&self->vertices[1],
+                             (float[2]){
+                                 -(float)self->view_width / 2,
+                                 -(float)self->view_height / 2
+                             },
                              (float[2]){0.0f, 0.0f});
-    image_view_set_vertex_2d(&self->vertices[2], (float[2]){ 100.0f,-100.0f},
+    image_view_set_vertex_2d(&self->vertices[2],
+                             (float[2]){
+                                  (float)self->view_width / 2,
+                                 -(float)self->view_height / 2
+                             },
                              (float[2]){1.0f, 0.0f});
-    image_view_set_vertex_2d(&self->vertices[3], (float[2]){ 100.0f, 100.0f},
+    image_view_set_vertex_2d(&self->vertices[3],
+                             (float[2]){
+                                  (float)self->view_width / 2,
+                                  (float)self->view_height / 2
+                             },
                              (float[2]){1.0f, 1.0f});
 
     texture_bind(&self->texture_id, 0);

@@ -9,6 +9,7 @@ typedef struct image_t {
     int width;
     int height;
     int bytes;
+    double aspect_ratio;
 } image_t;
 
 bool image_init(image_t *self, int width, int height, int bytes);

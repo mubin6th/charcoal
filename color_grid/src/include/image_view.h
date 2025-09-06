@@ -26,6 +26,8 @@ typedef struct image_view_buffer_t {
     size_t colors_length;
     image_t image;
     GLuint texture_id;
+    int view_width;
+    int view_height;
 } image_view_buffer_t;
 
 void image_view_init(image_view_buffer_t *self, window_t *window);
