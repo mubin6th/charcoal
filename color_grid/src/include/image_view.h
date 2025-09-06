@@ -1,7 +1,10 @@
 #ifndef _IMAGE_VIEW_H_INCLUDED_
 #define _IMAGE_VIEW_H_INCLUDED_
 
+#include "image.h"
 #include "window.h"
+#include "read.h"
+#include "arg.h"
 #include "../../include/glad/glad.h"
 #include "../../include/linmath.h"
 
@@ -18,10 +21,15 @@ typedef struct image_view_buffer_t {
     window_t *window;
     linmath_mat4x4 projection;
     linmath_mat4x4 view;
+    read_file_change_t file_change_state;
+    uint32_t colors[1024];
+    size_t colors_length;
+    image_t image;
+    GLuint texture_id;
 } image_view_buffer_t;
 
 void image_view_init(image_view_buffer_t *self, window_t *window);
 void image_view_deinit(image_view_buffer_t *self);
-void image_view_draw(image_view_buffer_t *self);
+void image_view_draw(image_view_buffer_t *self, arg_t *arg);
 
 #endif

@@ -3,9 +3,9 @@
 
 #include "include/image_view.h"
 #include "include/shader.h"
+#include "include/draw.h"
+#include "include/texture.h"
 #include "../include/glad/glad.h"
-
-static const double pi = 3.141592653589793238;
 
 static const char *image_view_vertex_shader =
     "#version 330\n"
@@ -26,14 +26,15 @@ static const char *image_view_fragment_shader =
     "out vec4 out_color;\n"
     "in vec2 v_tex_coords;\n"
     "\n"
+    "uniform sampler2D texture_0;\n"
     "void main()\n"
     "{\n"
-    "   out_color = vec4(v_tex_coords.x, v_tex_coords.y, 0.0f, 1.0f);\n"
+    "   out_color = texture(texture_0, v_tex_coords);\n"
     "}"
 ;
 
 static inline void image_view_set_vertex_2d(image_view_vertex_t *vertex, float *pos,
-                                         float *tex_coords)
+                                            float *tex_coords)
 {
     vertex->pos[0] = pos[0];
     vertex->pos[1] = pos[1];
@@ -47,6 +48,7 @@ void image_view_init(image_view_buffer_t *self, window_t *window)
     self->window = window;
     self->shader_program = shader_init(image_view_vertex_shader,
                                        image_view_fragment_shader);
+    self->file_change_state.file_last_change_date = 0;
     uint32_t indices[] = {
         0, 1, 2,
         0, 3, 2
@@ -72,10 +74,13 @@ void image_view_init(image_view_buffer_t *self, window_t *window)
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glDeleteBuffers(1, &ebo);
 
+    float half_window_width = window->width / 2.0f;
+    float half_window_height = window->height / 2.0f;
     linmath_mat4x4_identity(self->projection);
-    linmath_mat4x4_perspective(self->projection, 120.0f * (pi / 180),
-                               (float)self->window->width / self->window->height,
-                               0.1f, 100.0f);
+    linmath_mat4x4_ortho(self->projection,
+                         -half_window_width, half_window_width,
+                         -half_window_height, half_window_height,
+                         0.1f, 100.0f);
 }
 
 void image_view_deinit(image_view_buffer_t *self)
@@ -84,25 +89,41 @@ void image_view_deinit(image_view_buffer_t *self)
     glDeleteBuffers(1, &self->vbo);
 }
 
-void image_view_draw(image_view_buffer_t *self)
+void image_view_draw(image_view_buffer_t *self, arg_t *arg)
 {
+    if (read_file_for_hex_color_changes(&self->file_change_state, 0.2f, arg->path,
+                                        self->colors,
+                                        sizeof(self->colors) / sizeof(uint32_t),
+                                        &self->colors_length))
+    {
+        int row = ceil((double)self->colors_length / arg->col);
+        image_init(&self->image, arg->width * arg->col, arg->height * row, 3);
+        draw_color_grid_vertically_flipped(&self->image, self->colors,
+                                           self->colors_length, row, arg->col,
+                                           arg->height, arg->width);
+        texture_deinit(&self->texture_id);
+        texture_init(&self->texture_id, &self->image);
+        image_free(&self->image);
+    }
+
     linmath_mat4x4_identity(self->view);
-    linmath_mat4x4_translate(self->view, 0.0f, 0.0f, -2.0f);
+    linmath_mat4x4_translate(self->view, 0.0f, 0.0f, -1.0f);
     glUniformMatrix4fv(glGetUniformLocation(self->shader_program, "view"), 1,
                        GL_FALSE, &self->view[0][0]);
     glUniformMatrix4fv(glGetUniformLocation(self->shader_program, "projection"), 1,
                        GL_FALSE, &self->projection[0][0]);
 
     // example data
-    image_view_set_vertex_2d(&self->vertices[0], (float[2]){-0.5f, 0.5f},
+    image_view_set_vertex_2d(&self->vertices[0], (float[2]){-100.0f, 100.0f},
                              (float[2]){0.0f, 1.0f});
-    image_view_set_vertex_2d(&self->vertices[1], (float[2]){-0.5f,-0.5f},
+    image_view_set_vertex_2d(&self->vertices[1], (float[2]){-100.0f,-100.0f},
                              (float[2]){0.0f, 0.0f});
-    image_view_set_vertex_2d(&self->vertices[2], (float[2]){ 0.5f,-0.5f},
+    image_view_set_vertex_2d(&self->vertices[2], (float[2]){ 100.0f,-100.0f},
                              (float[2]){1.0f, 0.0f});
-    image_view_set_vertex_2d(&self->vertices[3], (float[2]){ 0.5f, 0.5f},
+    image_view_set_vertex_2d(&self->vertices[3], (float[2]){ 100.0f, 100.0f},
                              (float[2]){1.0f, 1.0f});
 
+    texture_bind(&self->texture_id, 0);
     glUseProgram(self->shader_program);
     glBindBuffer(GL_ARRAY_BUFFER, self->vbo);
     glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(self->vertices), self->vertices);
