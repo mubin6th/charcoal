@@ -58,11 +58,11 @@ void run_image_view(arg_t *arg)
     }
     window_process_callbacks();
     image_view_buffer_t view_buffer;
-    image_view_init(&view_buffer, window);
+    image_view_init(&view_buffer);
     while (!glfwWindowShouldClose(window->window)) {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        image_view_draw(&view_buffer, arg);
+        image_view_draw(&view_buffer, window, arg);
         glfwPollEvents();
         glfwSwapBuffers(window->window);
     }
