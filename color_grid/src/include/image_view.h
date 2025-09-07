@@ -18,7 +18,6 @@ typedef struct image_view_buffer_t {
     GLuint vbo;
     GLuint vao;
     GLuint shader_program;
-    window_t *window;
     linmath_mat4x4 projection;
     linmath_mat4x4 view;
     read_file_change_t file_change_state;
@@ -30,8 +29,8 @@ typedef struct image_view_buffer_t {
     int view_height;
 } image_view_buffer_t;
 
-void image_view_init(image_view_buffer_t *self, window_t *window);
+void image_view_init(image_view_buffer_t *self);
 void image_view_deinit(image_view_buffer_t *self);
-void image_view_draw(image_view_buffer_t *self, arg_t *arg);
+void image_view_draw(image_view_buffer_t *self, window_t *window, arg_t *arg);
 
 #endif

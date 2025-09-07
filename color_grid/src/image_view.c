@@ -44,20 +44,19 @@ static inline void image_view_set_vertex_2d(image_view_vertex_t *vertex, float *
 }
 
 
-static inline void image_view_get_view_size(image_view_buffer_t *self)
+static inline void image_view_get_view_size(image_view_buffer_t *self, window_t *window)
 {
-    if (self->window->width / self->image.aspect_ratio <= self->window->height) {
-        self->view_width = self->window->width;
-        self->view_height = self->window->width / self->image.aspect_ratio;
+    if (window->width / self->image.aspect_ratio <= window->height) {
+        self->view_width = window->width;
+        self->view_height = window->width / self->image.aspect_ratio;
         return;
     }
-    self->view_width = self->window->height * self->image.aspect_ratio;
-    self->view_height = self->window->height;
+    self->view_width = window->height * self->image.aspect_ratio;
+    self->view_height = window->height;
 }
 
-void image_view_init(image_view_buffer_t *self, window_t *window)
+void image_view_init(image_view_buffer_t *self)
 {
-    self->window = window;
     self->shader_program = shader_init(image_view_vertex_shader,
                                        image_view_fragment_shader);
     self->file_change_state.file_last_change_date = 0;
@@ -93,7 +92,7 @@ void image_view_deinit(image_view_buffer_t *self)
     glDeleteBuffers(1, &self->vbo);
 }
 
-void image_view_draw(image_view_buffer_t *self, arg_t *arg)
+void image_view_draw(image_view_buffer_t *self, window_t *window, arg_t *arg)
 {
     if (read_file_for_hex_color_changes(&self->file_change_state, 0.15f, arg->path,
                                         self->colors,
@@ -114,8 +113,8 @@ void image_view_draw(image_view_buffer_t *self, arg_t *arg)
     linmath_mat4x4_identity(self->projection);
     linmath_mat4x4_translate(self->view, 0.0f, 0.0f, -1.0f);
     linmath_mat4x4_ortho(self->projection,
-                         -self->window->width / 2.0f, self->window->width / 2.0f,
-                         -self->window->height / 2.0f, self->window->height / 2.0f,
+                         -window->width / 2.0f, window->width / 2.0f,
+                         -window->height / 2.0f, window->height / 2.0f,
                          0.1f, 100.0f);
 
     glUniformMatrix4fv(glGetUniformLocation(self->shader_program, "view"), 1,
@@ -123,7 +122,7 @@ void image_view_draw(image_view_buffer_t *self, arg_t *arg)
     glUniformMatrix4fv(glGetUniformLocation(self->shader_program, "projection"), 1,
                        GL_FALSE, &self->projection[0][0]);
 
-    image_view_get_view_size(self);
+    image_view_get_view_size(self, window);
     image_view_set_vertex_2d(&self->vertices[0],
                              (float[2]){
                                  -(float)self->view_width / 2,
