@@ -7,7 +7,7 @@ can be in every newline or in between paragraphs.
 
 The help command of the tool below:
 ```
-Usage: colorgrid [arguments] [parameters]
+Usage: colorgrid [arguments...]
 A program to take hex separated colors from file and make a color grid.
 
     -i, --input=<str>     path to text file.
@@ -15,5 +15,7 @@ A program to take hex separated colors from file and make a color grid.
     -c, --columns=<int>   the number of columns. default: 0.
     -x, --width=<int>     tile width. default: 64.
     -y, --height=<int>    tile height. default: 64.
-    -h, --help            show this help message and exit.
+    -w, --watch           preview changes to color palette. helpful when editing.
+    -v, --version         print version of colorgrid.
+    -h, --help            show this help message and exit
 ```
