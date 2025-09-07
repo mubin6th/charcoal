@@ -7,7 +7,8 @@ static arg_t arg_g = {
     .col = -1,
     .width = 64,
     .height = 64,
-    .watch = false
+    .watch = false,
+    .version = false
 };
 static const char *arg_description =
     "A program to take hex separated colors from file and make a color grid.";
@@ -26,6 +27,8 @@ static struct argparse_option arg_options[] = {
                 0),
     OPT_BOOLEAN('w', "watch", &arg_g.watch, "preview changes to color palette. helpful "
                 "when editing.", NULL, 0, 0),
+    OPT_BOOLEAN('v', "version", &arg_g.version, "print version of colorgrid.", NULL, 0,
+                0),
     OPT_HELP(),
     OPT_END()
 };

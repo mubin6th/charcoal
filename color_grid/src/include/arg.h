@@ -13,6 +13,7 @@ typedef struct arg_t {
     int width;
     int height;
     bool watch;
+    bool version;
 } arg_t;
 
 arg_t *arg_get(char **argv, int argc);

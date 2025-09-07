@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "include/version.h"
 #include "include/arg.h"
 #include "include/read.h"
 #include "include/image.h"
@@ -16,6 +17,11 @@ void run_image_view(arg_t *arg);
 int main(int argc, char **argv)
 {
     arg_t *arg = arg_get(argv, argc);
+    if (arg->version) {
+        fprintf(stdout, "colorgrid v%d.%d.%d\n",
+                VERSION_MAJOR, VERSION_MINOR,VERSION_PATCH);
+        return 0;
+    }
     if (arg->path == NULL) {
         argparse_help_cb_no_exit(&arg->parser, arg->option);
         return EXIT_ERROR;
