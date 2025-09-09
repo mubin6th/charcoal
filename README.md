@@ -14,6 +14,12 @@
 src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview_revision_2.png?raw=true"
 alt="preview image">
 
+## Palette
+### Dark mode
+<img
+src="https://github.com/mubin6th/binary-files/blob/master/charcoal/charcoal_dark_color_palette.png?raw=true"
+alt="dark color palette">
+
 ## Install
 Currently the theme is only available for Neovim. The
 [echasnovski/mini.nvim](https://github.com/echasnovski/mini.nvim) plugin set is used for
