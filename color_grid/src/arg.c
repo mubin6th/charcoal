@@ -18,7 +18,8 @@ static const char *const arg_usages[] = {
 };
 static struct argparse_option arg_options[] = {
     OPT_STRING('i', "input", &arg_g.path, "path to text file.", NULL, 0, 0),
-    OPT_INTEGER('r', "rows", &arg_g.row, "the number of rows. default: 1.", NULL,0,
+    OPT_INTEGER('r', "rows", &arg_g.row, "the number of rows. default: 1. "
+                "row is arbitary on watch mode.", NULL, 0,
                 0),
     OPT_INTEGER('c', "columns", &arg_g.col, "the number of columns. default: 0.",
                 NULL, 0, 0),

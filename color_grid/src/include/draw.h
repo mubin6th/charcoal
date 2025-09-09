@@ -9,5 +9,7 @@
 void draw_color_grid_vertically_flipped(const image_t *image, uint32_t *colors,
                                         size_t colors_length, uint32_t row, uint32_t col,
                                         uint32_t px_in_row, uint32_t px_in_col);
+void draw_color_grid(const image_t *image, uint32_t *colors, size_t colors_length,
+                     uint32_t row, uint32_t col, uint32_t px_in_row, uint32_t px_in_col);
 
 #endif

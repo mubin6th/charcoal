@@ -44,8 +44,8 @@ int main(int argc, char **argv)
     }
     image_t image;
     image_init(&image, arg->col * arg->width, arg->row * arg->height, 3);
-    draw_color_grid_vertically_flipped(&image, colors, colors_length, arg->row, arg->col,
-                                       arg->height, arg->width);
+    draw_color_grid(&image, colors, colors_length, arg->row, arg->col, arg->height,
+                    arg->width);
     image_write(&image, "colorgrid.png");
     image_free(&image);
     return 0;
