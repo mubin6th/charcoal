@@ -23,12 +23,8 @@ alt="dark color palette">
 ## Install
 Currently the theme is only available for Neovim. The
 [echasnovski/mini.nvim](https://github.com/echasnovski/mini.nvim) plugin set is used for
-this colorscheme. You have to make sure you have **lazy.nvim** installed. You can install
-[charcoal dark](https://github.com/mubin6th/charcoal/blob/master/nvim/charcoal_dark.lua)
-or [charcoal light](https://github.com/mubin6th/charcoal/blob/master/nvim/charcoal_light.lua)
-from the hyperlinks.
+this colorscheme. You have to make sure you have **lazy.nvim** installed. You can
+currently only install [charcoal dark](https://github.com/mubin6th/charcoal/blob/master/nvim/charcoal_dark.lua) from the hyperlink.
 
 ## Contribute
-Currently, there are no accent colors to the theme. I would like to add accent colors as
-they are sometimes required for applications. If you want to **suggest** any change to
-the palette, let me know. I will kindly take your opinion, Insha'allah.
+If you want to **suggest** any change to the palette, let me know. I will kindly take your opinion, Insha'allah.
