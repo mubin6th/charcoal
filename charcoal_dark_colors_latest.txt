@@ -2,13 +2,13 @@
 // Shades will gradually increase their strength.
 
 warm_black1 = #120e08
-warm_black2 = #1d1710
-warm_black3 = #271f15
-warm_black4 = #342a1c
-warm_black5 = #413423
+warm_black2 = #1f180e
+warm_black3 = #251e14
+warm_black4 = #352c1f
+warm_black5 = #493b2d
 
-warm_white1 = #78664c
-warm_white2 = #927c5e
-warm_white3 = #ac9373
-warm_white4 = #bca280
-warm_white5 = #d1b794
+warm_white1 = #6f5a3d
+warm_white2 = #816c4e
+warm_white3 = #a68d6a
+warm_white4 = #c3a881
+warm_white5 = #d6be9c
