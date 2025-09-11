@@ -11,5 +11,8 @@ all:
 run: all
 	./colorgrid
 
+install: all
+	cp colorgrid /usr/local/bin
+
 clean:
 	rm -fr ./colorgrid ./colorgrid.png
