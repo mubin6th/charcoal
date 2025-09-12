@@ -90,6 +90,7 @@ void image_view_deinit(image_view_buffer_t *self)
 {
     glDeleteVertexArrays(1, &self->vao);
     glDeleteBuffers(1, &self->vbo);
+    shader_deinit(&self->shader_program);
 }
 
 void image_view_draw(image_view_buffer_t *self, window_t *window, arg_t *arg)

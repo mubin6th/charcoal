@@ -7,7 +7,7 @@ warm_black3 = #251e14
 warm_black4 = #352c1f
 warm_black5 = #493b2d
 
-warm_white1 = #6f5a3d
+warm_white1 = #6d5a3f
 warm_white2 = #816c4e
 warm_white3 = #a68d6a
 warm_white4 = #c3a881
