@@ -6,7 +6,8 @@
 
 #include "include/image.h"
 
-bool image_init(image_t *self, int width, int height, int bytes) {
+bool image_init(image_t *self, int width, int height, int bytes)
+{
     *self = (image_t){
         .width = width,
         .height = height,
