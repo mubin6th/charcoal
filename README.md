@@ -10,15 +10,14 @@
 [Contribute]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#contribute
 
 ## Preview
-<img
-src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview_revision_2.png?raw=true"
-alt="preview image">
+> [!WARNING]
+> The preview will not arrive until the initial release(v0.0.1). And the previous
+> showcase is now no longer shown.
 
 ## Palette
-### Dark mode
-<img
-src="https://github.com/mubin6th/binary-files/blob/master/charcoal/charcoal_dark_color_palette.png?raw=true"
-alt="dark color palette">
+> [!WARNING]
+> The palette will not arrive under initial release(v0.0.1). After which, the color
+> palette will preview will change according to the newest stable version.
 
 ## Install
 Currently the theme is only available for Neovim. The
