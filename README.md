@@ -11,13 +11,13 @@
 
 ## Preview
 > [!WARNING]
-> The preview will not arrive until the initial release(v0.0.1). And the previous
-> showcase is now no longer shown.
+> The preview will not arrive until the initial release(v0.0.1). And the previous showcase
+> is now no longer shown.
 
 ## Palette
 > [!WARNING]
-> The palette will not arrive under initial release(v0.0.1). After which, the color
-> palette will preview will change according to the newest stable version.
+> The palette preview will not arrive until initial release(v0.0.1). After which, the
+> color palette will preview the latest stable version.
 
 ## Install
 Currently the theme is only available for Neovim. The
