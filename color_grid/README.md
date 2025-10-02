@@ -12,7 +12,7 @@ A program to take hex separated colors from file and make a color grid.
 
     -i, --input=<str>     path to text file.
     -r, --rows=<int>      the number of rows. default: 1.
-    -c, --columns=<int>   the number of columns. default: 0.
+    -c, --columns=<int>   the number of columns. default: 0. (meaning, the column is arbitary by default)
     -x, --width=<int>     tile width. default: 64.
     -y, --height=<int>    tile height. default: 64.
     -w, --watch           preview changes to color palette. helpful when editing.
