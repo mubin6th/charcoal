@@ -4,22 +4,27 @@
     config = function()
         require("mini.base16").setup({
             palette = {
-                base00 = "#120f09",
-                base01 = "#1e1812",
-                base02 = "#35291d",
-                base03 = "#66553f",
-                base04 = "#a28662",
-                base05 = "#c0a179",
-                base06 = "#d6b891",
-                base07 = "#292016",
-                base08 = "#887254",
-                base09 = "#d6b891",
-                base0A = "#c0a179",
-                base0B = "#927a60",
-                base0C = "#a28662",
-                base0D = "#d6b891",
-                base0E = "#a28662",
-                base0F = "#887254",
+                base00 = "#120e08", -- background
+                base01 = "#1d180f", -- brigher background (for status bars, line number,
+                --                     folding marks)
+                base02 = "#261f15", -- selection background
+                base03 = "#786440", -- comments, invisibles, line highlighting
+                base04 = "#a28a5f", -- dark foreground (for status bars)
+                base05 = "#a28a5f", -- foreground
+                base06 = "#d3bd95", -- bright foreground
+                base07 = "#352c1f", -- bright background
+                base08 = "#a28a5f", -- variables, xml tags, markup link text, markup lists,
+                --                     diff deleted
+                base09 = "#bea77b", -- integer, boolean, constants, xml attributes, markup link
+                --                     url
+                base0A = "#d3bd95", -- classes, markup bold, search text background
+                base0B = "#bea77b", -- strings, inherited class, markup code, diff inserted
+                base0C = "#d3bd95", -- data types, support, regular expressions,
+                --                     escape characters, markup, quotes
+                base0D = "#d3bd95", -- functions, methods, attribute ids, headings
+                base0E = "#bea77b", -- keywords, storage, selector, markup italic, diff changed
+                base0F = "#8b7650", -- deprecated, opening/closing embedded language tags,
+                --                     e.g. `<?php ?>`
             },
             use_cterm = true,
             plugins = {
