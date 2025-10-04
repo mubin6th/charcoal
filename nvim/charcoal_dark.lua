@@ -10,7 +10,7 @@
                 base02 = "#261f15", -- selection background
                 base03 = "#786440", -- comments, invisibles, line highlighting
                 base04 = "#a28a5f", -- dark foreground (for status bars)
-                base05 = "#a28a5f", -- foreground
+                base05 = "#bea77b", -- foreground
                 base06 = "#d3bd95", -- bright foreground
                 base07 = "#352c1f", -- bright background
                 base08 = "#a28a5f", -- variables, xml tags, markup link text, markup lists,
