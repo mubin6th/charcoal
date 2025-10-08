@@ -1,6 +1,3 @@
-// The black and white colors will have 5 shades. While others will have 3.
-// Shades will gradually increase their strength.
-
 warm_black1 = #120e08
 warm_black2 = #1d180f
 warm_black3 = #261f15
