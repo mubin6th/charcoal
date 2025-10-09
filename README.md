@@ -10,9 +10,17 @@
 [Contribute]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#contribute
 
 ## Preview
-> [!WARNING]
-> The preview will not arrive until the initial release(v0.0.1). And the previous showcase
-> is now no longer shown.
+### Charcoal Dark
+<img
+    alt="charcoal_dark_preview"
+    src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview_dark_revision_3.png?raw=true"
+>
+
+### Charcoal Light
+<img
+    alt="charcoal_dark_preview"
+    src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview_light_revision_3.png?raw=true"
+>
 
 ## Palette
 > [!WARNING]
