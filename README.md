@@ -13,14 +13,12 @@
 ### Charcoal Dark
 <img
     alt="charcoal_dark_preview"
-    src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview_dark_revision_3.png?raw=true"
->
+    src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview_dark_revision_3.png?raw=true">
 
 ### Charcoal Light
 <img
     alt="charcoal_dark_preview"
-    src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview_light_revision_3.png?raw=true"
->
+    src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview_light_revision_3.png?raw=true">
 
 ## Palette
 > [!WARNING]
