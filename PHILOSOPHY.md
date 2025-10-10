@@ -6,25 +6,25 @@ forest, wheat field or a warm environment.
 
 
 Colors should be warm and distinct from one another. The colorscheme will have enough
-contrast to distinguish elements of ui and code.The very dark background of the theme is
+contrast to distinguish elements of ui and code. The very dark background of the theme is
 meant to reduce eye-strain and look beautiful. The foreground colors are lightly tinted
-with yellow.
+warm.
 
 
 ## Inspiration
 The colorscheme is mainly inspired by the Gruvbox and Gruvbox Material colorschemes. In
-the past I used Gruvbox and soon moved to Gruvbox Material. The colors and the order of
-them in code were indeed really good. But after a while the different hues and
+the past I used to use Gruvbox and soon moved to Gruvbox Material. The colors and the
+order of them in code were indeed really good. But after a while the different hues and
 saturations disturbed me in my code (Personal Opinion).
 
 
-After this, I had made the urge to create my own colorscheme.
+After this, I had the urge to create my own colorscheme.
 
 
 ## Monocromacy
 Currently, Charcoal is a monochrome only colorscheme, many have liked it. So to add accent
 colors to the theme isn't a high priority. There are 10 colors for dark and light mode
-each. The current priority is to work on the perfecting the colors.
+each. The current priority is to work on perfecting the colors.
 
 
 ## Shades of Colors
@@ -36,15 +36,14 @@ Otherwise, all code may look the same and and become bland.
 
 
 The use of these shades should not be arbitary. They should follow specific rules. For
-example, in code, variables, functions, keywords should have colors that
-resemble their property.
+example, in code, variables, functions, keywords should have colors that resemble their
+property.
 
 
 ## Epilogue
-As a beginner in making colorscheme, searching for perfect colors is a bit difficult.
-Charcoal has seen many revisions. With each one, learning and fixing the theme. There
-are still work that needs to be done and Charcoal still isn't perfect. In some part of
-code it looks bland while in others colors pop too much.
+As a beginner to making colorscheme, searching for perfect colors is a bit difficult.
+Repeated trial and refinement is required to reach a satisfactory state. Currently,
+Charcoal has not reached the state. The colors sometimes look a bit less contrasty.
 
 
 There is also the consideration in displays. In one display a colorscheme may look good
