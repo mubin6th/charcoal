@@ -1,7 +1,7 @@
 # The Philosophy Of Charcoal
 
 ## The Kind of Colorscheme
-Charcoal Theme is targetting to be a warm colorscheme. It tries to resemble afternoon
+Charcoal Theme is targeting to be a warm colorscheme. It tries to resemble afternoon
 forest, wheat field or a warm environment.
 
 
