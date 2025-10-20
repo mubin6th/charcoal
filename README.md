@@ -11,12 +11,16 @@
 
 ## About
 Charcoal is a warm monochromatic colorscheme for text-editors, terminals, UI and more.
+The colorscheme resembles warm/rural weather, wheat field, afternoon sky etc. The dark
+background of Charcoal Dark is meant to help distinguish UI from Code. Charcoal is
+inspired by Gruvbox and Grubox Material colorschemes and tries to be simple and
+easy-on-eyes theme.
 
 ### Features
-- Warm and easy-on-eye colors.
+- Warm and easy-on-eyes colors.
 - Total of 10 monochromatic colors for each mode.
 - Simple dark and light shades.
-- Support for realtime color editing through [color_grid](https://github.com/mubin6th/charcoal/blob/develop/color_grid).
+- Support for real-time color editing through [color_grid](https://github.com/mubin6th/charcoal/blob/develop/color_grid).
 - **Soon**: Support for many text-editors and terminals.
 
 ## Preview
