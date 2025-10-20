@@ -9,27 +9,22 @@
 [Install]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#install
 [Contribute]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#contribute
 
-## Preview
-### Charcoal Dark
-<img
-    alt="charcoal_dark_preview"
-    src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview_dark_revision_3.png?raw=true">
+## About
+Charcoal is a warm monochromatic colorscheme for text-editors, terminals, UI and more.
 
-### Charcoal Light
-<img
-    alt="charcoal_dark_preview"
-    src="https://github.com/mubin6th/binary-files/blob/master/charcoal/preview_light_revision_3.png?raw=true">
+### Features
+- Warm and easy-on-eye colors.
+- Total of 10 monochromatic colors for each mode.
+- Simple dark and light shades.
+- Support for realtime color editing through [color_grid](https://github.com/mubin6th/charcoal/blob/develop/color_grid).
+- **Soon**: Support for many text-editors and terminals.
+
+## Preview
+<a href="https://github.com/mubin6th/charcoal/blob/develop/readme_resources/preview_neovim_v1.0.0.png?raw=true"><img alt="preview_neovim_v1.0.0.png" src="https://github.com/mubin6th/charcoal/blob/develop/readme_resources/preview_neovim_v1.0.0.png?raw=true"></a>
 
 ## Palette
-> [!WARNING]
-> The palette preview will not arrive until initial release(v0.0.1). After which, the
-> color palette will preview the latest stable version.
-
-## Install
-Currently the theme is only available for Neovim. The
-[echasnovski/mini.nvim](https://github.com/echasnovski/mini.nvim) plugin set is used for
-this colorscheme. You have to make sure you have **lazy.nvim** installed. You can
-currently only install [charcoal dark](https://github.com/mubin6th/charcoal/blob/master/nvim/charcoal_dark.lua) from the hyperlink.
+_todo_
 
 ## Contribute
-If you want to **suggest** any change to the palette, let me know. I will kindly take your opinion, Insha'allah.
+If you would like to suggest any change to the palette, let me know. I will kindly view
+your opinion, Insha'allah.
