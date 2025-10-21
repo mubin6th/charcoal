@@ -21,14 +21,13 @@ easy-on-eyes theme.
 - Total of 10 monochromatic colors for each mode.
 - Simple dark and light shades.
 - Support for real-time color editing through [color_grid](https://github.com/mubin6th/charcoal/blob/develop/color_grid).
-- **Soon**: Support for many text-editors and terminals.
 
 ## Preview
 <a href="https://github.com/mubin6th/charcoal/blob/develop/readme_resources/preview_neovim_v1.0.0.png?raw=true"><img alt="preview_neovim_v1.0.0.png" src="https://github.com/mubin6th/charcoal/blob/develop/readme_resources/preview_neovim_v1.0.0.png?raw=true"></a>
 
 ## Palette
-Here is the text form of the palette, I had hard time creating a grid layout. Therefore,
-the text form is below:
+Here is the text form of the palette, I had faced difficulties creating a grid layout.
+Therefore, the text form is below:
 ```
 -- Dark mode                  |         -- Light mode
 warm_black1 = #0f0b05         |         warm_white1 = #928363
