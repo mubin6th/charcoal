@@ -18,11 +18,10 @@ static const char *const arg_usages[] = {
 };
 static struct argparse_option arg_options[] = {
     OPT_STRING('i', "input", &arg_g.path, "path to text file.", NULL, 0, 0),
-    OPT_INTEGER('r', "rows", &arg_g.row, "the number of rows. default: 1. "
-                "row is arbitary on watch mode.", NULL, 0,
+    OPT_INTEGER('r', "rows", &arg_g.row, "the number of rows. default: 1. ", NULL, 0,
                 0),
-    OPT_INTEGER('c', "columns", &arg_g.col, "the number of columns. default: 0.",
-                NULL, 0, 0),
+    OPT_INTEGER('c', "columns", &arg_g.col, "the number of columns. default: 0. "
+                "(meaning, the column is arbitary by default)", NULL, 0, 0),
     OPT_INTEGER('x', "width", &arg_g.width, "tile width. default: 64.", NULL, 0, 0),
     OPT_INTEGER('y', "height", &arg_g.height, "tile height. default: 64.", NULL, 0,
                 0),

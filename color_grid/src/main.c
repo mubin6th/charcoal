@@ -19,7 +19,7 @@ int main(int argc, char **argv)
     arg_t *arg = arg_get(argv, argc);
     if (arg->version) {
         fprintf(stdout, "colorgrid v%d.%d.%d\n",
-                VERSION_MAJOR, VERSION_MINOR,VERSION_PATCH);
+                version_major, version_minor,version_patch);
         return 0;
     }
     if (arg->path == NULL) {

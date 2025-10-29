@@ -1,21 +1,21 @@
-base00 = "#120f09", -- background
-base01 = "#1e1812", -- brigher background (for status bars, line number,
---                     folding marks)
-base02 = "#35291d", -- selection background
-base03 = "#66553f", -- comments, invisibles, line highlighting
-base04 = "#a28662", -- dark foreground (for status bars)
-base05 = "#c0a179", -- foreground
-base06 = "#d6b891", -- bright foreground
-base07 = "#292016", -- bright background
-base08 = "#887254", -- variables, xml tags, markup link text, markup lists,
---                     diff deleted
-base09 = "#d6b891", -- integer, boolean, constants, xml attributes, markup link
---                     url
-base0A = "#c0a179", -- classes, markup bold, search text background
-base0B = "#a28662", -- strings, inherited class, markup code, diff inserted
-base0C = "#a28662", -- data types, support, regular expressions,
---                     escape characters, markup, quotes
-base0D = "#d6b891", -- functions, methods, attribute ids, headings
-base0E = "#a28662", -- keywords, storage, selector, markup italic, diff changed
-base0F = "#887254", -- deprecated, opening/closing embedded language tags,
---                     e.g. `<?php ?>`
+base00 -- background
+base01 -- brigher background (for status bars, line number,
+       -- folding marks)
+base02 -- selection background
+base03 -- comments, invisibles, line highlighting
+base04 -- dark foreground (for status bars)
+base05 -- foreground
+base06 -- bright foreground
+base07 -- bright background
+base08 -- variables, xml tags, markup link text, markup lists,
+       -- diff deleted
+base09 -- integer, boolean, constants, xml attributes, markup link
+       -- url
+base0A -- classes, markup bold, search text background
+base0B -- strings, inherited class, markup code, diff inserted
+base0C -- data types, support, regular expressions,
+       -- escape characters, markup, quotes
+base0D -- functions, methods, attribute ids, headings
+base0E -- keywords, storage, selector, markup italic, diff changed
+base0F -- deprecated, opening/closing embedded language tags,
+       -- e.g. `<?php ?>`
