@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.0.1 (In progress)
+## v1.0.1 - 31/10/2025
 - fix: README.md: Redirect correct link to preview image.
 - fix: README.md: improve contribute section.
 - change: alacritty/README.md: Proper installation guide.
