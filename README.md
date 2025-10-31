@@ -5,10 +5,6 @@
 **[Preview] | [Install] | [Contribute]**
 </div>
 
-[Preview]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#preview
-[Install]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#install
-[Contribute]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#contribute
-
 ## About
 Charcoal is a warm colorscheme for text-editors, terminals, UI and more. The colorscheme
 resembles warm/rural weather, wheat field, afternoon sky etc. The dark background of
@@ -43,5 +39,9 @@ warm_white5 = #dec8a7         |         warm_black5 = #645538
 ```
 
 ## Contribute
-If you would like to suggest any change to the palette, let me know. I will kindly view
-your opinion, Insha'allah.
+Charcoal is in its early stages, so many colors may be imperfect so feel free to post any
+issue about it. I will kindly view your opinion, Insha'allah.
+
+[Preview]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#preview
+[Install]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#install
+[Contribute]: https://github.com/mubin6th/charcoal?tab=readme-ov-file#contribute
