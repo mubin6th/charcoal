@@ -1,11 +1,9 @@
-warm_black1 = #0f0b05
+warm_black1 = #120e08
 warm_black2 = #1b140a
 warm_black3 = #231b0e
 warm_black4 = #2a2012
-warm_black5 = #342818
 
-warm_white1 = #57462c
-warm_white2 = #876e48
-warm_white3 = #a88c62
-warm_white4 = #c3a983
-warm_white5 = #dec8a7
+warm_white1 = #655030
+warm_white2 = #8c734e
+warm_white3 = #b3976d
+warm_white4 = #d1b994

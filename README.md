@@ -13,7 +13,7 @@ and Gruvbox Material colorschemes and tries to be simple and easy-on-eyes theme.
 
 ### Features
 - Warm and easy-on-eyes colors.
-- Total of 10 monochromatic colors for each monochrome mode.
+- 8 monochromatic colors for each monochrome mode.
 - Simple dark and light shades.
 - Support for real-time color editing through [color_grid](https://github.com/mubin6th/charcoal/blob/develop/color_grid).
 
@@ -25,17 +25,15 @@ Here is the text form of the palette, I faced difficulties creating a grid layou
 Therefore, the text form is below:
 ```
 -- Dark mode (Monochrome)     |         -- Light mode (Monochrome)
-warm_black1 = #0f0b05         |         warm_white1 = #928363
-warm_black2 = #1b140a         |         warm_white2 = #9f8f6d
-warm_black3 = #231b0e         |         warm_white3 = #af9f7d
-warm_black4 = #2a2012         |         warm_white4 = #bcad8c
-warm_black5 = #342818         |         warm_white5 = #cabda0
+warm_black1 = #120e08         |         warm_white1 = #9f8f69
+warm_black2 = #1b140a         |         warm_white2 = #ad9c74
+warm_black3 = #231b0e         |         warm_white3 = #bcab85
+warm_black4 = #2a2012         |         warm_white4 = #c9ba96
                               |
-warm_white1 = #57462c         |         warm_black1 = #0b0904
-warm_white2 = #876e48         |         warm_black2 = #251e0f
-warm_white3 = #a88c62         |         warm_black3 = #382e1b
-warm_white4 = #c3a983         |         warm_black4 = #4b3e26
-warm_white5 = #dec8a7         |         warm_black5 = #645538
+warm_white1 = #655030         |         warm_black1 = #150f05
+warm_white2 = #8c734e         |         warm_black2 = #2e2412
+warm_white3 = #b3976d         |         warm_black3 = #4a3c25
+warm_white4 = #d1b994         |         warm_black4 = #695a40
 ```
 
 ## Contribute
