@@ -18,7 +18,7 @@ and Gruvbox Material colorschemes and tries to be simple and easy-on-eyes theme.
 - Support for real-time color editing through [color_grid](https://github.com/mubin6th/charcoal/blob/develop/color_grid).
 
 ## Preview
-<a href="https://github.com/mubin6th/charcoal/blob/master/readme_resources/preview_neovim_v1.0.0.png?raw=true"><img alt="preview_neovim_v1.0.0.png" src="https://github.com/mubin6th/charcoal/blob/master/readme_resources/preview_neovim_v1.0.0.png?raw=true"></a>
+<a href="https://github.com/mubin6th/charcoal/blob/master/readme_resources/preview_neovim_v1.1.0.png?raw=true"><img alt="preview_neovim_v1.1.0.png" src="https://github.com/mubin6th/charcoal/blob/master/readme_resources/preview_neovim_v1.0.0.png?raw=true"></a>
 
 ## Palette
 Here is the text form of the palette, I faced difficulties creating a grid layout.

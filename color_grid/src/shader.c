@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "include/shader.h"
 
-static void shader_print_error_if_any(FILE *stream, GLuint shader, GLenum shader_type)
+static void shader_print_error_if_any(FILE *stream, GLuint shader,
+        GLenum shader_type)
 {
     int success;
     char buf[512];
@@ -15,7 +16,8 @@ static void shader_print_error_if_any(FILE *stream, GLuint shader, GLenum shader
     fprintf(stream, "[error][%s]: %s", shader_type_string, buf);
 }
 
-GLuint shader_init(const char *vertex_shader, const char *fragment_shader)
+GLuint shader_init(const char *vertex_shader,
+        const char *fragment_shader)
 {
     GLuint vertex_shader_bin = glCreateShader(GL_VERTEX_SHADER);
     GLuint fragment_shader_bin = glCreateShader(GL_FRAGMENT_SHADER);

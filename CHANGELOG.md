@@ -3,6 +3,7 @@
 ## v1.1.0 - 31/10/2025
 - **breaking**: color palette is now 8 colors for both dark and light monochrome variants.
 - change: alacritty/*.toml: Charcoal has been adjusted for Alacritty.
+- add: readme_resources/preview_neovim_v1.1.0.png added.
 
 ## v1.0.1 - 31/10/2025
 - fix: README.md: Redirect correct link to preview image.
